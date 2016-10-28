@@ -26,7 +26,7 @@ $(document).ready(function(){
       var depart_id = $(this).val();
       //alert(depart_id);
         $.get('/get-position/' + depart_id, function(data, status){
-            $('#position').empty();
+            //$('#position').empty();
             $.each(data, function(index,positionObj){
               //console.log(data);
               $('#position').append('<option value="'+positionObj.pos_id+'">'+positionObj.posName+'</option>');
@@ -38,9 +38,10 @@ $(document).ready(function(){
       var province_id = $(this).val();
       
         $.get('/get-amphur/' + province_id, function(data, status){
+            
             $('#amphur').empty();
+            $('#amphur').append('<option value="">------ เลือกอำเภอ ------</option>');
             $.each(data, function(index,amphurObj){
-              //console.log(data);
               $('#amphur').append('<option value="'+amphurObj.amphur_id+'">'+amphurObj.amphur_name+'</option>');
             })
         });
