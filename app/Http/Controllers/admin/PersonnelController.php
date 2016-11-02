@@ -71,9 +71,12 @@ class PersonnelController extends Controller
     {
         $this->validate($request, [
             'firstName' => 'required|max:150',
-            'lastName' => 'required|unique:tb_personnels|max:150',
+            'lastName' => 'required|max:150',
             'tel' => 'required|min:10|max:10',
-            'email' => 'email|unique:tb_personnels',
+            'email' => 'email|unique:tb_personnels|'.$id,
+            'id_card' => 'required|min:13',
+            'marital_status' => 'required',
+            'status' => 'required',
             'position_id' => 'required',
             'salary' => 'required|min:4|max:7',
             'address' => 'required|max:255',
@@ -88,6 +91,9 @@ class PersonnelController extends Controller
         $obj->lastName = $request['lastName'];
         $obj->tel = $request['tel'];
         $obj->email = $request['email'];
+        $obj->id_card = $request['id_card'];
+        $obj->marital_status = $request['marital_status'];
+        $obj->status = $request['status'];
         $obj->position_id = $request['position_id'];
         $obj->salary = $request['salary'];
         $obj->address = $request['address'];
@@ -149,9 +155,12 @@ class PersonnelController extends Controller
     {
         $this->validate($request, [
             'firstName' => 'required|max:150',
-            'lastName' => 'required|unique:tb_personnels|max:150',
+            'lastName' => 'required|max:150',
             'tel' => 'required|min:10|max:10',
-            'email' => 'email|unique:tb_personnels',
+            'email' => 'email|unique:tb_personnels|'.$id,
+            'id_card' => 'required|min:13',
+            'marital_status' => 'required',
+            'status' => 'required',
             'position_id' => 'required',
             'salary' => 'required|min:4|max:7',
             'address' => 'required|max:255',
@@ -166,6 +175,9 @@ class PersonnelController extends Controller
         $obj->lastName = $request['lastName'];
         $obj->tel = $request['tel'];
         $obj->email = $request['email'];
+        $obj->id_card = $request['id_card'];
+        $obj->marital_status = $request['marital_status'];
+        $obj->status = $request['status'];
         $obj->position_id = $request['position_id'];
         $obj->salary = $request['salary'];
         $obj->address = $request['address'];

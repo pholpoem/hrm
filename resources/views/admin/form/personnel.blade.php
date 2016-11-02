@@ -120,7 +120,7 @@
   				<div class="col-sm-6">
 
   					<div class="form-group">
-						<label class="col-sm-3 control-label">แผนก</label>
+						<label class="col-sm-4 control-label">แผนก</label>
 						<div class="col-sm-6">
 							<select class="form-control" id="department">
 								<option value="">------ เลือกแผนก ------</option>
@@ -132,7 +132,7 @@
 					</div>
 
 					<div class="form-group {{ $errors->has('position_id') ? 'has-error' : '' }}">
-						<label class="col-sm-3 control-label">ตำแหน่ง</label>
+						<label class="col-sm-4 control-label">ตำแหน่ง</label>
 						<div class="col-sm-6">
 							<select class="form-control" name="position_id" id="position">
 								<option value="{{ $per_list->pos_id or '' }}">{{ $per_list->posName or '' }}</option>
@@ -151,24 +151,36 @@
 					@endphp
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">รหัสพนักงาน</label>
+						<label class="col-sm-4 control-label">รหัสพนักงาน</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="per_id" name="per_id" placeholder="รหัสพนักงาน" value="{{ $per_list->per_id or $personnel_id }}" readonly>
 						</div>
 					</div>
-  					
-  					<div class="form-group">
-						<label class="col-sm-3 control-label">รูปประจำตัว</label>
-						<div class="col-sm-6">
-							<input type="file" id="image_file" name="image_file">
-							<p class="help-block">Select your image.</p>
+
+					<div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
+						<label class="col-sm-4 control-label">สถานะ</label>
+						<div class="col-sm-4">
+							<select class="form-control" name="status">
+							 	<option value="พนักงานประจำ" @if(isset($per_list)) @if($per_list->status == 'พนักงานประจำ') selected @endif @endif>พนักงานประจำ</option>
+							  	<option value="ทดลองงาน" @if(isset($per_list)) @if($per_list->status == 'ทดลองงาน') selected @endif @endif>ทดลองงาน</option>
+							  	<option value="สัญญาจ้าง" @if(isset($per_list)) @if($per_list->status == 'สัญญาจ้าง') selected @endif @endif>สัญญาจ้าง</option>
+							  	<option value="นศ.ฝึกงาน" @if(isset($per_list)) @if($per_list->status == 'นศ.ฝึกงาน') selected @endif @endif>นศ.ฝึกงาน</option>
+							</select>
 						</div>
 					</div>
 
 					<div class="form-group {{ $errors->has('salary') ? 'has-error' : '' }}">
-						<label class="col-sm-3 control-label">เงินเดือน</label>
+						<label class="col-sm-4 control-label">เงินเดือน</label>
 						<div class="col-sm-6">
 							<input type="number" class="form-control" name="salary" placeholder="เงินเดือน" value="{{ $per_list->salary or '' }}">
+						</div>
+					</div>
+  					
+  					<div class="form-group">
+						<label class="col-sm-4 control-label">รูปประจำตัว</label>
+						<div class="col-sm-6">
+							<input type="file" id="image_file" name="image_file">
+							<p class="help-block">Select your image.</p>
 						</div>
 					</div>
 
