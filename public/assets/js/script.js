@@ -22,49 +22,51 @@ function delete_row(id){
 
 $(document).ready(function(){
 
-    $('#department').on('change',function(){
-      var depart_id = $(this).val();
-      //alert(depart_id);
-        $.get('/get-position/' + depart_id, function(data, status){
-            //$('#position').empty();
-            $.each(data, function(index,positionObj){
-              //console.log(data);
-              $('#position').append('<option value="'+positionObj.pos_id+'">'+positionObj.posName+'</option>');
-            })
-        });
-    });
+  $('#personnels-list').DataTable();
 
-    $('#province').on('change',function(){
-      var province_id = $(this).val();
-      
-        $.get('/get-amphur/' + province_id, function(data, status){
-            
-            $('#amphur').empty();
-            $('#amphur').append('<option value="">------ เลือกอำเภอ ------</option>');
-            $.each(data, function(index,amphurObj){
-              $('#amphur').append('<option value="'+amphurObj.amphur_id+'">'+amphurObj.amphur_name+'</option>');
-            })
-        });
-    });
+  $('#department').on('change',function(){
+    var depart_id = $(this).val();
+    //alert(depart_id);
+      $.get('/get-position/' + depart_id, function(data, status){
+          //$('#position').empty();
+          $.each(data, function(index,positionObj){
+            //console.log(data);
+            $('#position').append('<option value="'+positionObj.pos_id+'">'+positionObj.posName+'</option>');
+          })
+      });
+  });
 
-    $('#amphur').on('change',function(){
-      var amphur_id = $(this).val();
-      
-        $.get('/get-district/' + amphur_id, function(data, status){
-            $('#district').empty();
-            $.each(data, function(index,districtObj){
-              //console.log(data);
-              $('#district').append('<option value="'+districtObj.district_id+'">'+districtObj.district_name+'</option>');
-            })
-        });
-    });
+  $('#province').on('change',function(){
+    var province_id = $(this).val();
+    
+      $.get('/get-amphur/' + province_id, function(data, status){
+          
+          $('#amphur').empty();
+          $('#amphur').append('<option value="">------ เลือกอำเภอ ------</option>');
+          $.each(data, function(index,amphurObj){
+            $('#amphur').append('<option value="'+amphurObj.amphur_id+'">'+amphurObj.amphur_name+'</option>');
+          })
+      });
+  });
 
-    $('#amphur').on('change',function(){
-      var amphur_id = $(this).val();
-      
-        $.get('/get-zipcode/' + amphur_id, function(data, status){
-            $('#zipcode').attr("value",data.zipcode);
-        });
-    });
+  $('#amphur').on('change',function(){
+    var amphur_id = $(this).val();
+    
+      $.get('/get-district/' + amphur_id, function(data, status){
+          $('#district').empty();
+          $.each(data, function(index,districtObj){
+            //console.log(data);
+            $('#district').append('<option value="'+districtObj.district_id+'">'+districtObj.district_name+'</option>');
+          })
+      });
+  });
+
+  $('#amphur').on('change',function(){
+    var amphur_id = $(this).val();
+    
+      $.get('/get-zipcode/' + amphur_id, function(data, status){
+          $('#zipcode').attr("value",data.zipcode);
+      });
+  });
 
 });

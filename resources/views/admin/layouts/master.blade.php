@@ -5,10 +5,13 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/bootstrap.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/font-awesome.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/dataTables.bootstrap.min.css') }}"/>
 
         <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-3.1.0.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('assets/js/script.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('assets/js/jquery.dataTables.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('assets/js/dataTables.bootstrap.min.js') }}"></script>
     </head>
     <body>
         

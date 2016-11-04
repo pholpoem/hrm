@@ -19,7 +19,7 @@
   					<div class="form-group {{ $errors->has('prefix') ? 'has-error' : '' }}">
 						<label class="col-sm-4 control-label">คำนำหน้า</label>
 						<div class="col-sm-4">
-							<select class="form-control" name="perfix">
+							<select class="form-control" name="prefix">
 							 	<option value="นาย" @if(isset($per_list)) @if($per_list->prefix == 'นาย') selected @endif @endif>นาย</option>
 							  	<option value="นาง" @if(isset($per_list)) @if($per_list->prefix == 'นาง') selected @endif @endif>นาง</option>
 							  	<option value="นางสาว" @if(isset($per_list)) @if($per_list->prefix == 'นางสาว') selected @endif @endif>นางสาว</option>

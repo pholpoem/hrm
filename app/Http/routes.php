@@ -45,6 +45,4 @@ Route::get('/messages', function () {
 Route::get('/overtime', function () {
     return view('admin.contents.overtime');
 });
-Route::get('/department_position', function () {
-    return view('admin.contents.department_position');
-});
+Route::get('/department_position', 'admin\DepartmentController@index');

@@ -73,7 +73,7 @@ class PersonnelController extends Controller
             'firstName' => 'required|max:150',
             'lastName' => 'required|max:150',
             'tel' => 'required|min:10|max:10',
-            'email' => 'email|unique:tb_personnels|'.$id,
+            'email' => 'required|email|unique:tb_personnels',
             'id_card' => 'required|min:13',
             'marital_status' => 'required',
             'status' => 'required',
@@ -87,6 +87,7 @@ class PersonnelController extends Controller
 
         $obj = new Personnel();
         $obj->per_id = $request['per_id'];
+        $obj->prefix = $request['prefix'];
         $obj->firstName = $request['firstName'];
         $obj->lastName = $request['lastName'];
         $obj->tel = $request['tel'];
@@ -102,7 +103,7 @@ class PersonnelController extends Controller
         $obj->province_id = $request['province_id'];
         $obj->zipcode = $request['zipcode'];
         $obj->save();
-        return redirect('/personnel');
+        return redirect()->back();
     }
 
     /**
@@ -157,7 +158,7 @@ class PersonnelController extends Controller
             'firstName' => 'required|max:150',
             'lastName' => 'required|max:150',
             'tel' => 'required|min:10|max:10',
-            'email' => 'email|unique:tb_personnels|'.$id,
+            'email' => 'unique:tb_personnels,email,'.$id,
             'id_card' => 'required|min:13',
             'marital_status' => 'required',
             'status' => 'required',
@@ -170,6 +171,7 @@ class PersonnelController extends Controller
         ]);
         
         $obj = Personnel::find($id);
+        $obj->prefix = $request['prefix'];
         $obj->per_id = $request['per_id'];
         $obj->firstName = $request['firstName'];
         $obj->lastName = $request['lastName'];
@@ -186,7 +188,7 @@ class PersonnelController extends Controller
         $obj->province_id = $request['province_id'];
         $obj->zipcode = $request['zipcode'];
         $obj->save();
-        return redirect('/personnel');
+        return redirect()->back();
     }
 
     /**

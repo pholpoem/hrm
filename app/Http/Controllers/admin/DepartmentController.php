@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Department;
+use App\Position;
 
 class DepartmentController extends Controller
 {
@@ -16,7 +18,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $department = Department::all();
+        $data['department'] = $department;
+        return view('admin.contents.department_position',$data);
     }
 
     /**
